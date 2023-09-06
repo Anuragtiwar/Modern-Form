@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addimision form</title>
+</head>
+<style>
+    body {
+        background-image: url("background1 (3).jpg");
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .pop_up_form_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .form {
+        width: 481px;
+        height: 350px;
+        overflow: hidden;
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        transform: scale(1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .form.hidden {
+        transform: scale(0);
+        pointer-events: none;
+    }
+
+    #formHeading {
+        text-align: center;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .form form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px;
+        padding: 0;
+    }
+
+    .pop_form_input {
+        width: 99% !important;
+        height: 45px !important;
+        color: white;
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    .h-green {
+        transition: 0.5s;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+
+    .tranprent {
+        outline: none;
+        border: none;
+        background: rgba(0, 0, 0, 0.3);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .selecte_container {
+        display: flex;
+        gap: 20px;
+    }
+
+
+    .close-btn-pop-window {
+        width: 100px;
+        height: 43px;
+        cursor: pointer;
+        margin-left: 178px;
+        color: white;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    .close-btn-pop-window:hover {
+        background-color: red;
+    }
+
+    .form_close_logo {
+        position: absolute;
+        top: 7%;
+        right: 2%;
+        width: 29px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: invert(1);
+        transition: 0.5s;
+    }
+
+    .form_close_logo:hover {
+        background-color: rgb(0 255 246);
+    }
+</style>
+
+<body>
+    
+    <div class="pop_up_form_container">
+
+        <div class="form">
+            <div id="formHeading">
+                <h1>Login Form</h1>
+            </div>
+            <div class="form_close_logo" onclick="hideForms()"><img src="close.png" alt=""
+                    style="width: 13px; cursor: pointer;">
+            </div>
+
+            <form action="">
+
+                <input type="text" class="pop_form_input tranprent " placeholder="Enter Full Name" name="data[name]">
+
+                <input type="email" class="pop_form_input tranprent" placeholder="Enter Email" name="data[email]">         
+
+                <input type="submit" value="Login" class="tranprent pop_form_input h-green" style="cursor:pointer;">
+
+                <input type="button" value="Close"  onclick="hideForms()" class="tranprent close-btn-pop-window">
+            </form>
+
+        </div>
+
+    </div>
+
+    <script>
+        // script.js
+function hideForms() {
+    var forms = document.getElementsByClassName('form');
+    for (var i = 0; i < forms.length; i++) {
+        forms[i].classList.add('hidden');
+    }
+}
+
+    </script>
+</body>
+
+</html>
